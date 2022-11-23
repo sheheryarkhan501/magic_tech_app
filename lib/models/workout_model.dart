@@ -1,5 +1,5 @@
 
-class WorkoutModel {
+class SetModel {
   final String id;
   final String name;
   final String description;
@@ -7,7 +7,7 @@ class WorkoutModel {
   final String weightKilograms;
   final String repetitions;
 
-  WorkoutModel({
+  SetModel({
     this.id = "0",
     this.name = "Bench press",
     this.description = "Bench press - 40kg",
@@ -16,8 +16,8 @@ class WorkoutModel {
     this.repetitions = "10",
   });
 
-  factory WorkoutModel.fromJson(Map<String, dynamic> json) {
-    return WorkoutModel(
+  factory SetModel.fromJson(Map<String, dynamic> json) {
+    return SetModel(
       id: json['id'],
       name: json['name'],
       description: json['description'],
@@ -38,3 +38,12 @@ class WorkoutModel {
     };
   }
 }
+
+class WorkoutModel {
+  List<SetModel>? sets;
+
+  WorkoutModel({
+    this.sets,
+  });
+}
+

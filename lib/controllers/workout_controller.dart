@@ -2,39 +2,34 @@ import 'package:get/get.dart';
 import 'package:magic_tech_app/models/workout_model.dart';
 
 class WorkoutController  extends GetxController {
-  WorkoutModel workoutModel = WorkoutModel();
 
-  List<WorkoutModel> workoutList = <WorkoutModel>[].obs;
+  List<WorkoutModel> workoutList = [];
 
-  void addWorkout(WorkoutModel workoutModel) {
+  int workoutIndex = 0;
+  int setIndex = 0;
+
+  void addWorkout (WorkoutModel workoutModel){
     workoutList.add(workoutModel);
+    update();
   }
 
-  void removeWorkout(WorkoutModel workoutModel) {
+  void removeWorkout (WorkoutModel workoutModel){
     workoutList.remove(workoutModel);
+    update();
   }
 
-  void updateWorkout(WorkoutModel workoutModel) {
-    workoutList.remove(workoutModel);
-    workoutList.add(workoutModel);
+  void setWorkoutIndex (int index){
+    workoutIndex = index;
   }
 
-  void clearWorkoutList() {
-    workoutList.clear();
+  void addSet (SetModel setModel){
+    workoutList[workoutIndex].sets!.add(setModel);
+    update();
   }
 
-  void setWorkoutModel(WorkoutModel workoutModel) {
-    this.workoutModel = workoutModel;
+  void removeSet (SetModel setModel){
+    workoutList[workoutIndex].sets!.remove(setModel);
+    update();
   }
-
-  WorkoutModel getWorkoutModel() {
-    return workoutModel;
-  }
-
-  List<WorkoutModel> getWorkoutList() {
-    return workoutList;
-  }
-
-
 
 }
