@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:magic_tech_app/constants/string_constants.dart';
 import 'package:magic_tech_app/views/screens/workout_list_screen.dart';
 import 'package:magic_tech_app/views/screens/workout_screen.dart';
 import 'package:get/get.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Magic',
+      title: StringConstants.appName,
       theme: ThemeData(
         
         primarySwatch: Colors.blue,
